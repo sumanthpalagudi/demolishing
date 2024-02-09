@@ -16,7 +16,7 @@ def send_message_to_gpt3(user_input):
         prompt += f"{message['role'].capitalize()}: {message['content']}\n"
     response = openai.chat.completions.create(   
         model= "gpt-3.5-turbo", # Choose the GPT-3.5 Turbo engine
-        messages=[{"role":"system","content":"you are expert in git,based on what they ask you have give them with commands that they should run on command line,and also don't use master use main"},  # The chat history between User and GPT-3.5
+        messages=[{"role":"system","content":"you are expert in git,based on what they ask you have give them with commands that they should run on command line,and also don't use master use main,and also don't give examples for the commands"},  # The chat history between User and GPT-3.5
         {"role": "user", "content": prompt}]
     )
     conversation_history.append({"role": "system", "content": response.choices[0].message.content})
