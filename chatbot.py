@@ -63,6 +63,7 @@ def execute_git_commands(git_commands):
             # Execute Git command using subprocess and capture output
             completed_process = subprocess.run(formatted_command, shell=True, capture_output=True, text=True)
             git_responses[formatted_command] = completed_process.stdout.strip()
+            print(git_responses[formatted_command])
         except subprocess.CalledProcessError as e:
             git_responses[formatted_command] = f"Error executing Git command: {e}"
             continue
