@@ -55,6 +55,7 @@ def execute_git_commands(git_commands):
 
             # Replace placeholders with user input
             formatted_command = command.format(**placeholder_values)
+            print(formatted_command)
             if "git commit" in command.lower():
                 # If it's a commit command, prompt the user for the commit message
                 commit_message = input("Enter commit message: ")
