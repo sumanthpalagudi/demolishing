@@ -34,12 +34,17 @@ def extract_git_commands(response):
     """
     # Simple example: Extracting Git commands using a simple keyword search
     git_commands = [command.strip() for command in response.splitlines() if "git" in command.lower()]
+    
+    # Further filter out non-Git commands
+    git_commands = [command for command in git_commands if command.startswith("git")]
+    
     return git_commands
 
 def execute_git_commands(git_commands):
     """
     Execute Git commands and prompt for necessary details.
     """
+    print(git_commands)
     git_responses = {}
     for command in git_commands:
         try:
